@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "ender_potions",
+  "version": "${version}",
+  "name": "Ender Potions",
+  "description": "Teleport to your friends (and all over the place?) with two new potions",
+  "authors": ["pajic"],
+  "contact": {},
+  "license": "MIT",
+  "icon": "icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "me.pajic.ender_potions.Main"
+    ],
+    "client": [
+      "me.pajic.ender_potions.ClientMain"
+    ],
+    "emi": [
+      "me.pajic.ender_potions.plugin.EMIPlugin"
+    ]
+  },
+  "mixins": [
+    "ender_potions.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": [
+      "1.21.4"
+    ],
+    "owo-lib": "*"
+  }
+}
