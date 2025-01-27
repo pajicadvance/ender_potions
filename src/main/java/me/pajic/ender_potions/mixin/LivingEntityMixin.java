@@ -18,7 +18,12 @@ public class LivingEntityMixin {
             )
     )
     private boolean removeChunkCheckForPotion(boolean original) {
-        if ((LivingEntity) (Object) this instanceof Player p && p.getMainHandItem().is(ModItems.POTION_OF_TELEPORTATION)) return true;
+        if (
+                (LivingEntity) (Object) this instanceof Player p &&
+                (p.getMainHandItem().is(ModItems.POTION_OF_TELEPORTATION) || p.getOffhandItem().is(ModItems.POTION_OF_TELEPORTATION)))
+        {
+            return true;
+        }
         return original;
     }
 }
