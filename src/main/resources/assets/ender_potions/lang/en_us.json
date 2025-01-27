@@ -1,0 +1,19 @@
+{
+  "text.config.ender_potions.title": "Ender Potions Configuration",
+  "text.config.ender_potions.option.enablePotionOfWormhole": "Enable wormhole potion",
+  "text.config.ender_potions.option.enablePotionOfTeleportation": "Enable teleportation potion",
+  "text.config.ender_potions.option.teleportRadius": "Teleport radius",
+  "text.config.ender_potions.option.teleportMaxHeight": "Teleport max height",
+
+  "screen.ender_potions.wormholePlayerSelection.title": "Select player to teleport to",
+
+  "item.ender_potions.potion_of_teleportation": "Potion of Teleportation",
+  "item.ender_potions.potion_of_teleportation.effect.empty": "Potion of Teleportation",
+  "item.ender_potions.potion_of_teleportation.effect.water": "Potion of Teleportation",
+  "item.ender_potions.potion_of_teleportation.tooltip": "Random Teleport",
+
+  "item.ender_potions.potion_of_wormhole": "Potion of Wormhole",
+  "item.ender_potions.potion_of_wormhole.effect.empty": "Potion of Wormhole",
+  "item.ender_potions.potion_of_wormhole.effect.water": "Potion of Wormhole",
+  "item.ender_potions.potion_of_wormhole.tooltip": "Teleport to Player"
+}
