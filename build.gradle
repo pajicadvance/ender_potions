@@ -60,9 +60,9 @@ configurations {
 dependencies {
     implementation "net.neoforged:neoforge:${property("neo_version")}"
     compileOnly "dev.emi:emi-neoforge:${property("emi_version")}"
-    if (stonecutter.eval(stonecutter.current.version, "1.21.1")) {
+    /*if (stonecutter.eval(stonecutter.current.version, "1.21.1")) {
         implementation "dev.emi:emi-neoforge:${property("emi_version")}"
-    }
+    }*/
 }
 
 tasks.withType(ProcessResources).configureEach {

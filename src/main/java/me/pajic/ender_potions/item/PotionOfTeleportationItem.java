@@ -23,9 +23,9 @@ public class PotionOfTeleportationItem extends CustomPotionItem {
             int maxHeight = ModServerConfig.teleportMaxHeight;
             int levelHeight = player.level().getHeight();
             //? if <= 1.21.1
-            /*int levelMinY = player.level().getMinBuildHeight();*/
+            int levelMinY = player.level().getMinBuildHeight();
             //? if > 1.21.1
-            int levelMinY = player.level().getMinY();
+            /*int levelMinY = player.level().getMinY();*/
             if (levelHeight > maxHeight) levelHeight = maxHeight;
             RandomSource random = player.getRandom();
             int x, y, z;

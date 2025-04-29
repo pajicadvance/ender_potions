@@ -1,7 +1,7 @@
 package me.pajic.ender_potions.item;
 
 import me.pajic.ender_potions.config.ModCommonConfig;
-import me.pajic.ender_potions.network.ModClientNetworking;
+import me.pajic.ender_potions.network.ModNetworking;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.flag.FeatureFlagSet;
@@ -27,7 +27,7 @@ public class PotionOfWormholeItem extends CustomPotionItem {
                 if (!p.getUUID().equals(player.getUUID())) onlinePlayers.put(p.getUUID(), p.getDisplayName().getString());
             });
             if (!onlinePlayers.isEmpty()) {
-                PacketDistributor.sendToPlayer(level.getServer().getPlayerList().getPlayer(player.getUUID()), new ModClientNetworking.S2COpenWormholeScreenPayload(onlinePlayers));
+                PacketDistributor.sendToPlayer(level.getServer().getPlayerList().getPlayer(player.getUUID()), new ModNetworking.S2COpenWormholeScreenPayload(onlinePlayers));
             }
         }
     }
