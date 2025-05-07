@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.9-SNAPSHOT'
+    id 'fabric-loom' version '1.10-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -44,10 +44,10 @@ dependencies {
     modImplementation(include("maven.modrinth:custombrewrecipes:${project.custombrewrecipes_version}"))
     modCompileOnly "dev.emi:emi-fabric:${property("emi_version")}"
 
-    if (stonecutter.eval(stonecutter.current.version, "1.21.1")) {
+    /*if (stonecutter.eval(stonecutter.current.version, "1.21.1")) {
         modImplementation "dev.emi:emi-fabric:${property("emi_version")}"
         modRuntimeOnly "maven.modrinth:carpet:${property("carpet_version")}"
-    }
+    }*/
 }
 
 processResources {

@@ -6,6 +6,15 @@
   "text.config.ender_potions.option.teleportMaxHeight": "Teleport max height",
 
   "screen.ender_potions.wormholePlayerSelection.title": "Select player to teleport to",
+  "gui.ender_potions.tp_accepted": "%s accepted your teleport request.",
+  "gui.ender_potions.tp_target_died": "Somehow, %s died the moment they accepted your teleport request...",
+  "gui.ender_potions.tp_requester_died": "%s died before you accepted their teleport request.",
+  "gui.ender_potions.tp_denied": "%s declined your teleport request.",
+  "gui.ender_potions.tp_incoming": "Teleported %s to you.",
+  "gui.ender_potions.request_sent": "Sent teleport request to %s.",
+  "gui.ender_potions.request_prompt_top": "%s wants to teleport to you.",
+  "gui.ender_potions.request_prompt_center": "Press %s to accept.",
+  "gui.ender_potions.request_prompt_bottom": "Declining in %ss.",
 
   "item.ender_potions.potion_of_teleportation": "Potion of Teleportation",
   "item.ender_potions.potion_of_teleportation.effect.empty": "Potion of Teleportation",
@@ -15,5 +24,8 @@
   "item.ender_potions.potion_of_wormhole": "Potion of Wormhole",
   "item.ender_potions.potion_of_wormhole.effect.empty": "Potion of Wormhole",
   "item.ender_potions.potion_of_wormhole.effect.water": "Potion of Wormhole",
-  "item.ender_potions.potion_of_wormhole.tooltip": "Teleport to Player"
+  "item.ender_potions.potion_of_wormhole.tooltip": "Teleport to Player",
+
+  "category.ender_potions.keybindings": "Ender Potions",
+  "key.ender_potions.accept_request": "Accept teleport request"
 }

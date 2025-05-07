@@ -1,6 +1,6 @@
 package me.pajic.ender_potions.item;
 
-import me.pajic.ender_potions.network.ModClientNetworking;
+import me.pajic.ender_potions.network.ModNetworking;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
@@ -21,10 +21,15 @@ public class PotionOfWormholeItem extends CustomPotionItem {
         if (!level.isClientSide()) {
             HashMap<UUID, String> onlinePlayers = new HashMap<>();
             level.players().forEach(p -> {
-                if (!p.getUUID().equals(player.getUUID())) onlinePlayers.put(p.getUUID(), p.getDisplayName().getString());
+                if (!p.getUUID().equals(player.getUUID())) {
+                    onlinePlayers.put(p.getUUID(), p.getDisplayName().getString());
+                }
             });
             if (!onlinePlayers.isEmpty()) {
-                ServerPlayNetworking.send(level.getServer().getPlayerList().getPlayer(player.getUUID()), new ModClientNetworking.S2COpenWormholeScreenPayload(onlinePlayers));
+                ServerPlayNetworking.send(
+                        level.getServer().getPlayerList().getPlayer(player.getUUID()),
+                        new ModNetworking.S2COpenWormholeScreenPayload(onlinePlayers)
+                );
             }
         }
     }

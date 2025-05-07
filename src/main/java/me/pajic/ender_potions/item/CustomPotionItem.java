@@ -49,7 +49,6 @@ public class CustomPotionItem extends PotionItem {
             if (stack.isEmpty()) {
                 return new ItemStack(Items.GLASS_BOTTLE);
             }
-
             if (player != null) {
                 player.getInventory().add(new ItemStack(Items.GLASS_BOTTLE));
             }
