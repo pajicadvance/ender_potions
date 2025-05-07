@@ -1,6 +1,7 @@
 package me.pajic.ender_potions.gui;
 
 import me.pajic.ender_potions.network.ModNetworking;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.ObjectSelectionList;
@@ -36,7 +37,14 @@ public class WormholeScreen extends Screen {
         this.list = this.layout.addToContents(new PlayerListWidget());
         LinearLayout linearLayout2 = this.layout.addToFooter(LinearLayout.horizontal().spacing(8));
         linearLayout2.addChild(Button.builder(CommonComponents.GUI_DONE, button -> {
-            PacketDistributor.sendToServer(new ModNetworking.C2SWormholeTeleportPayload(list.getSelected().uuid));
+            PacketDistributor.sendToServer(new ModNetworking.C2SSendTpRequest(list.getSelected().uuid));
+            minecraft.player.displayClientMessage(
+                    Component.translatable(
+                            "gui.ender_potions.request_sent",
+                            Component.literal(list.getSelected().name).withStyle(ChatFormatting.RED)
+                    ),
+                    true
+            );
             this.onClose();
         }).build());
         this.layout.visitWidgets(this::addRenderableWidget);

@@ -24,10 +24,15 @@ public class PotionOfWormholeItem extends CustomPotionItem {
         if (!level.isClientSide()) {
             HashMap<UUID, String> onlinePlayers = new HashMap<>();
             level.players().forEach(p -> {
-                if (!p.getUUID().equals(player.getUUID())) onlinePlayers.put(p.getUUID(), p.getDisplayName().getString());
+                if (!p.getUUID().equals(player.getUUID())) {
+                    onlinePlayers.put(p.getUUID(), p.getDisplayName().getString());
+                }
             });
             if (!onlinePlayers.isEmpty()) {
-                PacketDistributor.sendToPlayer(level.getServer().getPlayerList().getPlayer(player.getUUID()), new ModNetworking.S2COpenWormholeScreenPayload(onlinePlayers));
+                PacketDistributor.sendToPlayer(
+                        level.getServer().getPlayerList().getPlayer(player.getUUID()),
+                        new ModNetworking.S2COpenWormholeScreenPayload(onlinePlayers)
+                );
             }
         }
     }
