@@ -15,6 +15,7 @@ Based on [Stonecutter Fabric & NeoForge template](https://github.com/stonecutter
     - 1.21.1 Fabric and NeoForge
     - 26.1.2 Fabric and NeoForge
     - 26.2 Fabric and NeoForge
+    - 26.3 Fabric and NeoForge
 - Dependencies:
     - Fabric API (required)
     - Fzzy Config (required)
