@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:brewing",
+  "input": {
+    "item": "minecraft:potion",
+    "potion_contents": {
+      "potions": "minecraft:awkward"
+    }
+  },
+  "output": {
+    "id": "ender_potions:potion_of_wormhole"
+  },
+  "reagent": {
+    "item": "minecraft:ender_eye"
+  }
+}

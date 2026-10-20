@@ -1,0 +1,13 @@
+- Reworked wormhole teleport request system:
+  - Now uses chat messages instead of action bar messages
+  - Improved player selection screen
+  - Rewrote how it works under the hood, improving stability
+- Reworked random teleportation:
+  - Is now much more performant
+  - Has a higher chance of landing the player underground
+  - Reverted brewing recipe back to using an ender pearl instead of chorus fruit
+- No longer uses a config API, settings are now configured via game rules:
+  - Random teleport radius
+  - Random teleport max height
+  - Random teleport underground chance
+  - Wormhole teleport request timeout

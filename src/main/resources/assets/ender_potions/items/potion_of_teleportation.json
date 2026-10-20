@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "ender_potions:item/potion_of_teleportation"
+  }
+}

@@ -39,6 +39,12 @@ stonecutter parameters {
             replace("ValidatedIdentifier", "ValidatedIdentifier")
             replace("ResourceLocation", "Identifier")
             replace("net.ramixin.mixson_backport", "net.ramixin.mixson")
+            replace("GuiGraphics", "GuiGraphicsExtractor")
+            replace("graphics.drawString", "graphics.text")
+            replace("playS2C()", "clientboundPlay()")
+            replace("playC2S()", "serverboundPlay()")
+            replace("ItemGroupEvents.modifyEntriesEvent", "CreativeModeTabEvents.modifyOutputEvent")
+            replace("import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;", "import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;")
         }
     }
 }

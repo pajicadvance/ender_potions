@@ -20,20 +20,9 @@ repositories {
         forRepository { maven(url) { name = alias } }
         filter { groups.forEach(::includeGroup) }
     }
-    strictMaven("https://api.modrinth.com/maven", "Modrinth", "maven.modrinth")
-    strictMaven("https://maven.fzzyhmstrs.me/", "Fzzy Config", "me.fzzyhmstrs")
-    strictMaven("https://maven.terraformersmc.com/", "TerraformersMC", "com.terraformersmc")
     strictMaven("https://maven.caffeinemc.net/releases", "CaffeineMC", "net.caffeinemc")
     strictMaven("https://maven.su5ed.dev/releases", "Sinytra", "org.sinytra.forgified-fabric-api")
-    strictMaven("https://thedarkcolour.github.io/KotlinForForge/", "Kotlin Forge")
-    strictMaven("https://repo.nyon.dev/releases", "Kotlin Forge Again")
-    ivy {
-        url = uri("https://github.com/pajicadvance/Mixson/releases/download/")
-        patternLayout {
-            artifact("[revision]/mixson_backport-neoforge-${sc.current.version}-[revision].[ext]")
-        }
-        metadataSources { artifact() }
-    }
+    strictMaven("https://api.modrinth.com/maven", "Modrinth", "maven.modrinth")
 }
 
 val requiredJava = when {
@@ -121,8 +110,6 @@ dependencies {
 
 neoForge {
     version = property("loader.neo") as String
-    accessTransformers.from(rootProject.file("src/main/resources/aw/${sc.current.project.substringBefore('-')}.cfg"))
-    validateAccessTransformers = true
 
     mods {
         register(property("mod.id") as String) {
@@ -190,6 +177,12 @@ tasks {
             inputs.property("at", at)
             put("at", at)
             inputs.property("dependencies", neoDepends)
+            val modGroup: String = sc.properties["mod.group"]
+            val modId: String = sc.properties["mod.id"]
+            val rrvClient = if (sc.current.parsed >= "26.1" && sc.current.parsed < "26.3")
+                "rrv_client=\"$modGroup.$modId.compat.RRVPlugin\"" else ""
+            inputs.property("rrv_client", rrvClient)
+            put("rrv_client", rrvClient)
             put("dependencies", neoDepends)
         }
 
@@ -198,6 +191,7 @@ tasks {
 
         exclude("fabric.mod.json")
         exclude { it.path.startsWith("aw/") && it.path != at }
+        if (sc.current.parsed < "26.3") exclude("data/*/recipe/brewing/**")
     }
 
     named("createMinecraftArtifacts") {

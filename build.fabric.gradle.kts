@@ -18,18 +18,13 @@ repositories {
         forRepository { maven(url) { name = alias } }
         filter { groups.forEach(::includeGroup) }
     }
-    strictMaven("https://api.modrinth.com/maven", "Modrinth", "maven.modrinth")
-    strictMaven("https://maven.fzzyhmstrs.me/", "Fzzy Config", "me.fzzyhmstrs")
-    strictMaven("https://maven.terraformersmc.com/", "TerraformersMC", "com.terraformersmc")
     strictMaven("https://maven.caffeinemc.net/releases", "CaffeineMC", "net.caffeinemc")
     strictMaven("https://maven.su5ed.dev/releases", "Sinytra", "org.sinytra.forgified-fabric-api")
-    ivy {
-        url = uri("https://github.com/pajicadvance/Mixson/releases/download/")
-        patternLayout {
-            artifact("[revision]/mixson_backport-fabric-${sc.current.version}-[revision].[ext]")
-        }
-        metadataSources { artifact() }
-    }
+    strictMaven("https://api.modrinth.com/maven", "Modrinth", "maven.modrinth")
+    strictMaven("https://maven.blamejared.com/", "BlameJared", "mezz.jei", "net.mezzdev.config")
+    strictMaven("https://maven.shedaniel.me/", "Shedaniel", "me.shedaniel", "me.shedaniel.cloth")
+    strictMaven("https://maven.architectury.dev/", "Architectury", "dev.architectury")
+    strictMaven("https://maven.terraformersmc.com/", "TerraformersMC", "dev.emi", "com.terraformersmc")
 }
 
 val requiredJava: JavaVersion = when {
@@ -114,8 +109,6 @@ dependencies {
 }
 
 loom {
-    accessWidenerPath = rootProject.file("src/main/resources/aw/${sc.current.project.substringBefore('-')}.ct")
-
     decompilerOptions.named("vineflower") {
         options.put("mark-corresponding-synthetics", "1")
     }
@@ -191,6 +184,7 @@ tasks {
 
         exclude("META-INF/neoforge.mods.toml")
         exclude { it.path.startsWith("aw/") && it.path != ct }
+        if (sc.current.parsed < "26.3") exclude("data/*/recipe/brewing/**")
     }
 
     register<Copy>("buildAndCollect") {

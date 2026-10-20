@@ -12,11 +12,9 @@ description = "${description}"
 logoFile = "icon.png"
 displayURL = "${homepage_url}"
 issueTrackerURL = "${issues_url}"
+${rrv_client}
 
 [[mixins]]
 config = "${id}.mixins.json"
-
-[[accessTransformers]]
-file="${at}"
 
 ${dependencies}
